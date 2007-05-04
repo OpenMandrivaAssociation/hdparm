@@ -1,5 +1,5 @@
 %define	name	hdparm
-%define version 6.9
+%define version 7.3
 %define	rel	1
 %define release %mkrel %{rel}
 
