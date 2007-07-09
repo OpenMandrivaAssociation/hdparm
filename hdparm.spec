@@ -1,5 +1,5 @@
 %define	name	hdparm
-%define version 7.3
+%define version 7.6
 %define	rel	1
 %define release %mkrel %{rel}
 
@@ -42,5 +42,3 @@ rm -rf $RPM_BUILD_ROOT
 /sbin/hdparm
 %{_mandir}/man8/hdparm.8*
 %config(noreplace) %{_sysconfdir}/sysconfig/harddisks
-
-
