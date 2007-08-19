@@ -1,5 +1,5 @@
 %define	name	hdparm
-%define version 7.6
+%define version 7.7
 %define	rel	1
 %define release %mkrel %{rel}
 
@@ -10,7 +10,7 @@ Release:	%{release}
 License:	BSD
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/hdparm/
-Source0:	ftp://sunsite.unc.edu/pub/Linux/system/hardware/%name-%version.tar.bz2
+Source0:	http://nchc.dl.sourceforge.net/sourceforge/hdparm/%name-%version.tar.bz2
 Source1:	hdparm-sysconfig
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
