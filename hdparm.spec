@@ -38,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc hdparm.lsm Changelog contrib/README README.acoustic
+%doc hdparm.lsm Changelog README.acoustic
 /sbin/hdparm
 %{_mandir}/man8/hdparm.8*
 %config(noreplace) %{_sysconfdir}/sysconfig/harddisks
