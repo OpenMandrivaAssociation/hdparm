@@ -12,7 +12,6 @@ Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/hdparm/
 Source0:	http://nchc.dl.sourceforge.net/sourceforge/hdparm/%name-%version.tar.bz2
 Source1:	hdparm-sysconfig
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Hdparm is a useful system utility for setting (E)IDE hard drive
