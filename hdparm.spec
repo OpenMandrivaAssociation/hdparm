@@ -1,12 +1,13 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
 Version:	8.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/hdparm/
 Source0:	http://nchc.dl.sourceforge.net/sourceforge/hdparm/%name-%version.tar.gz
 Source1:	hdparm-sysconfig
+Patch0:		hdparm-no_strip.diff
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -15,7 +16,9 @@ example, hdparm can be used to tweak hard drive performance and to spin down
 hard drives for power conservation.
 
 %prep
+
 %setup -q
+%patch0 -p0
 
 %build
 %serverbuild
