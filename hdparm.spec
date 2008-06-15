@@ -1,6 +1,6 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
-Version:	8.6
+Version:	8.8
 Release:	%mkrel 1
 License:	BSD
 Group:		System/Kernel and hardware
@@ -27,7 +27,7 @@ make clean
 %make
 
 %install
-rm -fr %{buildroot}
+rm -rf %{buildroot}
 
 install -m0755 hdparm -D %{buildroot}/sbin/hdparm
 install -m0644 hdparm.8 -D %{buildroot}%{_mandir}/man8/hdparm.8
