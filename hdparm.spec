@@ -19,9 +19,7 @@ hard drives for power conservation.
 
 %build
 %serverbuild
-perl -pi -e "s/-O2/$CFLAGS/" Makefile
-make clean
-%make LDFLAGS="%{ldflags}"
+%make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="%{ldflags}" STRIP=/bin/true
 
 %install
 rm -rf %{buildroot}
