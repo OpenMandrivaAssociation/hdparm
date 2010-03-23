@@ -1,7 +1,7 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
-Version:	9.27
-Release:	%mkrel 3
+Version:	9.28
+Release:	%mkrel 1
 License:	BSD
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/hdparm/
