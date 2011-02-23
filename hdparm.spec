@@ -1,13 +1,13 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
-Version:	9.36
+Version:	9.37
 Release:	%mkrel 1
 License:	BSD
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/hdparm/
 Source0:	http://nchc.dl.sourceforge.net/sourceforge/hdparm/%name-%version.tar.gz
 Source1:	hdparm-sysconfig
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Hdparm is a useful system utility for setting (E)IDE hard drive parameters. For
