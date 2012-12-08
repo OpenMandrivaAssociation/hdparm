@@ -1,7 +1,7 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
-Version:	9.42
-Release:	1
+Version:	9.43
+Release:	%mkrel 1
 License:	BSD
 Group:		System/Kernel and hardware
 URL:		http://sourceforge.net/projects/hdparm/
@@ -26,7 +26,6 @@ install -m0644 hdparm.8 -D %{buildroot}%{_mandir}/man8/hdparm.8
 install -m0644 %{SOURCE1} -D %{buildroot}%{_sysconfdir}/sysconfig/harddisks
 
 %files
-%defattr(-,root,root)
 %doc hdparm.lsm Changelog README.acoustic
 %config(noreplace) %{_sysconfdir}/sysconfig/harddisks
 /sbin/hdparm
