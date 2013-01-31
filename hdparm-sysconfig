@@ -26,7 +26,7 @@
 
 # Enable drive read-lookahead
 #
-# LOOKAHEAD=1
+LOOKAHEAD=1
 
 # Add extra parameters here if wanted
 # On reasonably new hardware, you may want to try -X66, -X67 or -X68
