@@ -4,7 +4,7 @@ Version:	9.43
 Release:	2
 License:	BSD
 Group:		System/Kernel and hardware
-URL:		http://sourceforge.net/projects/hdparm/
+Url:		http://sourceforge.net/projects/hdparm/
 Source0:	http://nchc.dl.sourceforge.net/sourceforge/hdparm/%name-%version.tar.gz
 Source1:	hdparm-sysconfig
 
@@ -30,3 +30,4 @@ install -m0644 %{SOURCE1} -D %{buildroot}%{_sysconfdir}/sysconfig/harddisks
 %config(noreplace) %{_sysconfdir}/sysconfig/harddisks
 /sbin/hdparm
 %{_mandir}/man8/hdparm.8*
+
