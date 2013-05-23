@@ -18,7 +18,7 @@ hard drives for power conservation.
 
 %build
 %serverbuild
-%make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="%{ldflags}" STRIP=/bin/true
+%make CC=%{__cc} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="%{ldflags}" STRIP=/bin/true
 
 %install
 %makeinstall_std
