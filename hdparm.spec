@@ -1,7 +1,7 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
 Version:	9.43
-Release:	7
+Release:	8
 License:	BSD
 Group:		System/Kernel and hardware
 Url:		http://sourceforge.net/projects/hdparm/
