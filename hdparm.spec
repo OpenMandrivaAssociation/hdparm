@@ -37,7 +37,7 @@ cp -a * .uclibc
 %if %{with uclibc}
 %make -C .uclibc CC=%{uclibc_cc} CFLAGS="%{uclibc_cflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
 %endif
-%make CC=%{__cc} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="%{ldflags}" STRIP=/bin/true
+%make CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
 
 
 
