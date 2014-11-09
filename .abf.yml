@@ -1,3 +1,5 @@
-sources:
-  "hdparm-9.37.tar.gz": 8680bb7dd9df1c9cc96ab5e0eb6a821a95ccc76a
+removed_sources:
+  hdparm-9.37.tar.gz: 8680bb7dd9df1c9cc96ab5e0eb6a821a95ccc76a
   hdparm-9.43.tar.gz: 3ffbcf46237245868a569125a6d5c92a0e07e7ce
+sources:
+  hdparm-9.45.tar.gz: 232855a97df0a28ddeeff9325814517668877f6c

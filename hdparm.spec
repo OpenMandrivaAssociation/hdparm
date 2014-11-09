@@ -1,7 +1,7 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
-Version:	9.43
-Release:	13
+Version:	9.45
+Release:	1
 License:	BSD
 Group:		System/Kernel and hardware
 Url:		http://sourceforge.net/projects/hdparm/
@@ -18,7 +18,7 @@ hard drives for power conservation.
 
 %build
 %serverbuild
-%make CC=%{__cc} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="%{ldflags}" STRIP=/bin/true
+%make CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
 
 %install
 %makeinstall_std
