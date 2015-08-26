@@ -1,9 +1,9 @@
-%bcond_without	uclibc
+%bcond_with	uclibc
 
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
 Version:	9.45
-Release:	4
+Release:	5
 License:	BSD
 Group:		System/Kernel and hardware
 Url:		http://sourceforge.net/projects/hdparm/
