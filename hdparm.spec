@@ -7,6 +7,7 @@ Group:		System/Kernel and hardware
 Url:		http://sourceforge.net/projects/hdparm/
 Source0:	http://nchc.dl.sourceforge.net/sourceforge/hdparm/%name-%version.tar.gz
 Source1:	hdparm-sysconfig
+Patch0:		hdparm-9.49-increase-readahead-max-value-to-1048576.patch
 
 %description
 Hdparm is a useful system utility for setting (E)IDE hard drive parameters. For
@@ -15,6 +16,7 @@ hard drives for power conservation.
 
 %prep
 %setup -q
+%patch0 -p1 -b .setra~
 
 %build
 %serverbuild
