@@ -59,6 +59,27 @@ hdparm_try_apm()
     return 0
 }
 
+hdparm_max_multcount()
+{
+    local WANTED_DISK="$1"
+    local maxmultcount=$(hdparm -i $WANTED_DISK | grep MaxMultSect= | sed -e 's#.*MaxMultSect=\([[:digit:]]*\),.*#\1#g')
+    local multcount=$(hdparm -i $WANTED_DISK | grep MultSect= | sed -e 's#.* MultSect=\([[:digit:]]*\)$#\1#g')
+    if [ "$maxmultcount" != "$multcount" ]; then
+	echo $maxmultcount
+    fi
+    return 0
+}
+
+hdparm_supports_apm() {
+    local WANTED_DISK="$1"
+    local apm=$(hdparm -i $WANTED_DISK|grep AdvancedPM=|sed -e 's|.*AdvancedPM=\(\w.*\) .*|\1|g')
+    if [ "$apm" == "no" ]; then
+	return 1
+    else
+	return 0
+    fi
+}
+
 # parse /etc/hdparm.conf and spit out a list of options for the specified
 # disk, taking into account global settings in /etc/hdparm.conf, current AC
 # power status, and (as a fallback) the default apm settings on Ubuntu.
@@ -76,18 +97,20 @@ hdparm_options()
 
     egrep -v '^[[:space:]]*(#|$)' /etc/hdparm.conf |
     {
-        # set our default global apm policy here.
-        if hdparm_try_apm "$WANTED_DISK"; then
-            if hdparm_is_on_battery; then
-                hdparm_set_option -B128
-		# set a spindown time of 3 minutes by default so the disk isn't
-		# constantly power cycling on a busy machine if spindown is
-		# enabled
-		hdparm_set_option -S36
-            else
-                hdparm_set_option -B254
-            fi
-        fi
+	if hdparm_supports_apm "$WANTED_DISK"; then
+	    # set our default global apm policy here.
+	    if hdparm_try_apm "$WANTED_DISK"; then
+		if hdparm_is_on_battery; then
+		    hdparm_set_option -B128
+		    # set a spindown time of 3 minutes by default so the disk isn't
+		    # constantly power cycling on a busy machine if spindown is
+		    # enabled
+		    hdparm_set_option -S36
+		else
+		    hdparm_set_option -B254
+		fi
+	    fi
+	fi
 
         while read KEY SEP VALUE; do
             case $SEP in
@@ -146,7 +169,12 @@ hdparm_options()
                             hdparm_set_option -E$VALUE
                             ;;
                         mult_sect_io) 
-                            hdparm_set_option -m$VALUE
+                            if [ "$VALUE" == "max" ]; then
+                                VALUE=$(hdparm_max_multcount $WANTED_DISK)
+                            fi
+                            if [ -n "$VALUE" ]; then
+                                hdparm_set_option "--yes-i-know-what-i-am-doing -m$VALUE"
+                            fi
                             ;;
                         prefetch_sect) 
                             hdparm_set_option -P$VALUE
