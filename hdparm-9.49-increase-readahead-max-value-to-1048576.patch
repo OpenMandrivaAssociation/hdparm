@@ -1,0 +1,12 @@
+diff -up hdparm-9.49/hdparm.c.setra~ hdparm-9.49/hdparm.c
+--- hdparm-9.49/hdparm.c.setra~	2017-01-11 23:01:44.673811730 +0100
++++ hdparm-9.49/hdparm.c	2017-01-11 23:01:47.104799133 +0100
+@@ -3223,7 +3223,7 @@ int main (int _argc, char **_argv)
+ 			usage_help(8,EINVAL);
+ 		while (argp && (c = *argp++)) {
+ 			switch (c) {
+-				case GET_SET_PARM('a',"filesystem-read-ahead",fsreadahead,0,2048);
++				case GET_SET_PARM('a',"filesystem-read-ahead",fsreadahead,0,1048576);
+ 				case GET_SET_PARM('A',"look-ahead",lookahead,0,1);
+ 				case GET_SET_PARM('b',"bus-state",busstate,0,2);
+ 				case GET_SET_PARM('B',"power-management-mode",apmmode,0,255);
