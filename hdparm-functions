@@ -62,10 +62,10 @@ hdparm_try_apm()
 hdparm_max_multcount()
 {
     local WANTED_DISK="$1"
-    local maxmultcount=$(hdparm -i $WANTED_DISK | grep MaxMultSect= | sed -e 's#.*MaxMultSect=\([[:digit:]]*\),.*#\1#g')
-    local multcount=$(hdparm -i $WANTED_DISK | grep MultSect= | sed -e 's#.* MultSect=\([[:digit:]]*\)$#\1#g')
-    if [ "$maxmultcount" != "$multcount" ]; then
-	echo $maxmultcount
+    local maxmultsect=$(hdparm -i $WANTED_DISK | grep MaxMultSect= | sed -e 's#.*MaxMultSect=\([[:digit:]]*\),.*#\1#g')
+    local multsect=$(hdparm -i $WANTED_DISK | grep MultSect= | sed -e 's#.* MultSect=\([[:digit:]]*\)$#\1#g')
+    if [ "$maxmultsect" != "$multsect" -o "$multsect" != "off" ]; then
+	echo $maxmultsect
     fi
     return 0
 }
