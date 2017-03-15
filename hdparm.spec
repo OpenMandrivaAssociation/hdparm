@@ -27,6 +27,7 @@ hard drives for power conservation.
 %serverbuild
 make CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
 
+
 %install
 %makeinstall_std
 
