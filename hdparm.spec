@@ -21,7 +21,7 @@ hard drives for power conservation.
 
 %build
 %serverbuild
-make_build CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
+%make_build CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
 
 %install
 %make_install
