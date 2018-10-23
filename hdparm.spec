@@ -1,6 +1,6 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
-Version:	9.56
+Version:	9.57
 Release:	1
 License:	BSD
 Group:		System/Kernel and hardware
@@ -17,18 +17,14 @@ example, hdparm can be used to tweak hard drive performance and to spin down
 hard drives for power conservation.
 
 %prep
-%setup -q
-%patch0 -p1 -b .setra~
-%patch1 -p1 -b .dead_code~
-%patch2 -p1 -b .fd~
-%patch3 -p1 -b .geom~
+%autosetup -p1
 
 %build
 %serverbuild
-make CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
+make_build CC=%{__cc} CFLAGS="%{optflags}" LDFLAGS="%{ldflags}" STRIP=/bin/true
 
 %install
-%makeinstall_std
+%make_install
 
 install -m644 hdparm.8 -D %{buildroot}%{_mandir}/man8/hdparm.8
 install -m755 debian/hdparm.conf -D %{buildroot}%{_sysconfdir}/hdparm.conf
