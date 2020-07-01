@@ -1,7 +1,7 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
 Version:	9.58
-Release:	2
+Release:	3
 License:	BSD
 Group:		System/Kernel and hardware
 Url:		http://sourceforge.net/projects/hdparm/
@@ -27,8 +27,8 @@ hard drives for power conservation.
 %make_install
 
 install -m644 hdparm.8 -D %{buildroot}%{_mandir}/man8/hdparm.8
-install -m755 debian/hdparm.conf -D %{buildroot}%{_sysconfdir}/hdparm.conf
-install -m755 debian/hdparm.conf.5 -D %{buildroot}%{_mandir}/man5/hdparm.conf.5
+install -m644 debian/hdparm.conf -D %{buildroot}%{_sysconfdir}/hdparm.conf
+install -m644 debian/hdparm.conf.5 -D %{buildroot}%{_mandir}/man5/hdparm.conf.5
 
 %files
 %doc hdparm.lsm Changelog README.acoustic
