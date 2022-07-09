@@ -1,7 +1,7 @@
 Summary:	A utility for displaying and/or setting hard disk parameters
 Name:		hdparm
-Version:	9.63
-Release:	2
+Version:	9.64
+Release:	1
 License:	BSD
 Group:		System/Kernel and hardware
 Url:		http://sourceforge.net/projects/hdparm/
@@ -21,10 +21,10 @@ hard drives for power conservation.
 
 %build
 %set_build_flags
-%make_build binprefix=%{_prefix} CC=%{__cc} CFLAGS="%{optflags} -Oz" LDFLAGS="%{build_ldflags}" STRIP=/bin/true
+%make_build binprefix=%{_prefix} sbindir=%{_sbindir} CC=%{__cc} CFLAGS="%{optflags} -Oz" LDFLAGS="%{build_ldflags}" STRIP=/bin/true
 
 %install
-%make_install binprefix=%{_prefix}
+%make_install binprefix=%{_prefix} sbindir=%{_sbindir}
 install -m644 hdparm.8 -D %{buildroot}%{_mandir}/man8/hdparm.8
 install -m644 debian/hdparm.conf -D %{buildroot}%{_sysconfdir}/hdparm.conf
 install -m644 debian/hdparm.conf.5 -D %{buildroot}%{_mandir}/man5/hdparm.conf.5
