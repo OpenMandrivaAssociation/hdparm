@@ -11,6 +11,7 @@ Patch2:		hdparm-9.43-close_fd.patch
 Patch3:		hdparm-9.43-get_geom.patch
 Provides:	/sbin/hdparm
 
+BuildRequires:	make
 %description
 Hdparm is a useful system utility for setting (E)IDE hard drive parameters. For
 example, hdparm can be used to tweak hard drive performance and to spin down
